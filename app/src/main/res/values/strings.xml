@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name" translatable="false">CardApp</string>
+    <string name="msg_no_mail_app">No Email app found</string>
+    <string name="et_msg_hint">Put message here...</string>
+
+    <string name="person_name">Magomedov Shamil</string>>
+    <string name="email">shamilmag10031@gmail.com</string>
+    <string name="self_description">Experience in programming > 3 years, 18 years, 2 course HSE,
+        graduated from Samsung IT School, I own Java, Python, Html + CSS, I also study C ++, C # and SQL. \n
+Main development direction: Mobile Development (Android)</string>
+
+    <string name="git_link">https://github.com/shamil10031</string>
+    <string name="inst_link">https://www.instagram.com/shomazz</string>
+    <string name="telegram_link">https://telegram.me/shomazz</string>
+    <string name="vk_link">https://vk.com/shomazz</string>
+    <string name="market_link">https://play.google.com/store/apps/developer?id=ShomazzApp</string>
+
+    <string name="package_instagram">com.instagram.android</string>
+    <string name="package_telegram">org.telegram.messenger</string>
+    <string name="package_vk">com.vkontakte.android</string>
+
+</resources>

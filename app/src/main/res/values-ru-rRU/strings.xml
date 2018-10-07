@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">CardApp</string>
+    <string name="msg_no_mail_app">Не найдено приложение с почтой</string>
+    <string name="et_msg_hint">Введите сообщение...</string>
+
+    <string name="person_name">Магомедов Шамиль</string>>
+    <string name="email">shamilmag10031@gmail.com</string>
+    <string name="self_description">Опыт в программировании > 3 лет, 18 лет, 2 курс НИУ ВШЭ, закончил Samsung IT School, владею Java, Python, Html + CSS, также изучаю C++, C# и SQL.\n
+Основное направление : Мобильная разработка (Андроид)</string>
+
+    <string name="git_link">https://github.com/shamil10031</string>
+    <string name="inst_link">https://www.instagram.com/shomazz</string>
+    <string name="telegram_link">https://telegram.me/shomazz</string>
+    <string name="vk_link">https://vk.com/shomazz</string>
+    <string name="market_link">https://play.google.com/store/apps/developer?id=ShomazzApp</string>
+
+    <string name="package_instagram">com.instagram.android</string>
+    <string name="package_telegram">org.telegram.messenger</string>
+    <string name="package_vk">com.vkontakte.android</string>
+
+</resources>
