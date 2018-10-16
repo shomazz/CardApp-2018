@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 openLink(getResources().getString(R.string.inst_link),
                         getResources().getString(R.string.package_instagram));
-            }
+            } 
         });
         btnTelegram.setOnClickListener(new View.OnClickListener() {
             @Override
