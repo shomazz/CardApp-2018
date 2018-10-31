@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class AboutActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_git)
     ImageButton btnGit;
@@ -34,11 +34,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_about);
         ButterKnife.bind(this);
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnSend.setOnClickListener(onClick -> {
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 String[] mails = {getResources().getString(R.string.email)};
                 intent.setData(Uri.parse("mailto:"));
@@ -47,42 +45,26 @@ public class MainActivity extends AppCompatActivity {
                 if (intent.resolveActivity(getPackageManager()) != null)
                     startActivity(intent);
                 else
-                    Toast.makeText(MainActivity.this, getResources().getString(R.string.msg_no_mail_app),
+                    Toast.makeText(AboutActivity.this, getResources().getString(R.string.msg_no_mail_app),
                             Toast.LENGTH_SHORT).show();
-            }
         });
-        btnGit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnGit.setOnClickListener(onClick -> {
                 openLink(getResources().getString(R.string.git_link));
-            }
         });
-        btnInst.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnInst.setOnClickListener(onClick -> {
                 openLink(getResources().getString(R.string.inst_link),
                         getResources().getString(R.string.package_instagram));
-            } 
         });
-        btnTelegram.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnTelegram.setOnClickListener(onClick -> {
                 openLink(getResources().getString(R.string.telegram_link),
                         getResources().getString(R.string.package_telegram));
-            }
         });
-        btnVk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnVk.setOnClickListener(onClick -> {
                 openLink(getResources().getString(R.string.vk_link),
                         getResources().getString(R.string.package_vk));
-            }
         });
-        btnPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnPlay.setOnClickListener(onClick -> {
                 openLink(getResources().getString(R.string.market_link));
-            }
         });
     }
 

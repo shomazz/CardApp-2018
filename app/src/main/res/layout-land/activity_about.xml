@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_padding"
     android:paddingEnd="@dimen/activity_padding"
     android:paddingBottom="@dimen/elements_margin"
-    tools:context=".MainActivity">
+    tools:context=".AboutActivity">
 
     <ImageView
         android:id="@+id/img_profile"

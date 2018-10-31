@@ -1,0 +1,36 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fitsSystemWindows="false">
+
+	<com.google.android.material.appbar.AppBarLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:fitsSystemWindows="true"
+		android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
+		<androidx.appcompat.widget.Toolbar
+			android:id="@+id/toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+			android:background="@color/primary_color"
+			app:layout_scrollFlags="scroll|enterAlways"
+			app:popupTheme="?actionBarPopupTheme" />
+
+
+	</com.google.android.material.appbar.AppBarLayout>
+
+	<androidx.recyclerview.widget.RecyclerView
+
+		android:fitsSystemWindows="false"
+		android:id="@+id/recycler"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior"
+		tools:context=".NewsListActivity"
+		tools:listitem="@layout/news_item" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
