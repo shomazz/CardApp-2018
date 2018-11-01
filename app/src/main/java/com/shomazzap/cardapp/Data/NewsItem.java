@@ -32,7 +32,7 @@ public class NewsItem implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return title + " (" + getPublishDate() + ")";
+        return title + " (" + getFullPublishDate() + ")";
     }
 
     public String getTitle() {
@@ -47,9 +47,15 @@ public class NewsItem implements Serializable {
         return category;
     }
 
-    public String getPublishDate() {
+    public String getFullPublishDate() {
         // Locale US, because all details on english
         DateFormat dateFormat = new SimpleDateFormat("dd MMMM, HH:mm a", Locale.US);
+        return dateFormat.format(publishDate);
+    }
+
+    public String getShortPublishDate() {
+        // Locale US, because all details on english
+        DateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.US);
         return dateFormat.format(publishDate);
     }
 

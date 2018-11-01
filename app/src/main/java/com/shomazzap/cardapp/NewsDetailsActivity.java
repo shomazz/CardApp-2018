@@ -63,7 +63,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
 
     private void fillContent(NewsItem item) {
         newsContent.setText(item.getFullText());
-        newsDate.setText(item.getPublishDate());
+        newsDate.setText(item.getFullPublishDate());
         collapsingToolbar.setTitle(item.getShortTitle());
         newsTtile.setText(item.getTitle());
         Glide.with(this)
