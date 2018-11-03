@@ -26,10 +26,9 @@ public class ItemDecoration extends RecyclerView.ItemDecoration {
 
         final int position = parent.getChildLayoutPosition(view);
 
-        if (position != RecyclerView.NO_POSITION) {
+        if (position != RecyclerView.NO_POSITION)
             outRect.set(itemOffset, itemOffset, itemOffset, itemOffset);
-        } else {
+        else
             outRect.set(0, 0, 0, 0);
-        }
     }
 }

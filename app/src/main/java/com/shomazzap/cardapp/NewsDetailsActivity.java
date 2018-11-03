@@ -50,9 +50,10 @@ public class NewsDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news_details);
         ButterKnife.bind(this);
 
-        if (toolbar != null) {
+        if (toolbar != null)
             setSupportActionBar(toolbar);
-        } else Log.w("Toolbar!", "Toolbar is NULL!");
+        else
+            Log.w("Toolbar!", "Toolbar is NULL!");
         toolbar.setNavigationIcon(androidx.appcompat.R.drawable.abc_ic_ab_back_material);
         toolbar.setNavigationOnClickListener(onClick -> onBackPressed());
         //else Toast.makeText(this, "Toolbar is NULL!", Toast.LENGTH_SHORT).show();
