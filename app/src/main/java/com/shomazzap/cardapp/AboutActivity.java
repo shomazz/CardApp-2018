@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -36,36 +35,40 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         ButterKnife.bind(this);
+        setListenersToButtons();
+    }
+
+    private void setListenersToButtons() {
         btnSend.setOnClickListener(onClick -> {
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-                String[] mails = {getResources().getString(R.string.email)};
-                intent.setData(Uri.parse("mailto:"));
-                intent.putExtra(Intent.EXTRA_EMAIL, mails);  // EXTRA_MAIL works only with string array
-                intent.putExtra(Intent.EXTRA_TEXT, etMessage.getText().toString());
-                if (intent.resolveActivity(getPackageManager()) != null)
-                    startActivity(intent);
-                else
-                    Toast.makeText(AboutActivity.this, getResources().getString(R.string.msg_no_mail_app),
-                            Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            String[] mails = {getResources().getString(R.string.email)};
+            intent.setData(Uri.parse("mailto:"));
+            intent.putExtra(Intent.EXTRA_EMAIL, mails);  // EXTRA_MAIL works only with string array
+            intent.putExtra(Intent.EXTRA_TEXT, etMessage.getText().toString());
+            if (intent.resolveActivity(getPackageManager()) != null)
+                startActivity(intent);
+            else
+                Toast.makeText(AboutActivity.this, getResources().getString(R.string.msg_no_mail_app),
+                        Toast.LENGTH_SHORT).show();
         });
-        btnGit.setOnClickListener(onClick -> {
-                openLink(getResources().getString(R.string.git_link));
-        });
-        btnInst.setOnClickListener(onClick -> {
+        btnGit.setOnClickListener(onClick ->
+                openLink(getResources().getString(R.string.git_link))
+        );
+        btnInst.setOnClickListener(onClick ->
                 openLink(getResources().getString(R.string.inst_link),
-                        getResources().getString(R.string.package_instagram));
-        });
-        btnTelegram.setOnClickListener(onClick -> {
+                        getResources().getString(R.string.package_instagram))
+        );
+        btnTelegram.setOnClickListener(onClick ->
                 openLink(getResources().getString(R.string.telegram_link),
-                        getResources().getString(R.string.package_telegram));
-        });
-        btnVk.setOnClickListener(onClick -> {
+                        getResources().getString(R.string.package_telegram))
+        );
+        btnVk.setOnClickListener(onClick ->
                 openLink(getResources().getString(R.string.vk_link),
-                        getResources().getString(R.string.package_vk));
-        });
-        btnPlay.setOnClickListener(onClick -> {
-                openLink(getResources().getString(R.string.market_link));
-        });
+                        getResources().getString(R.string.package_vk))
+        );
+        btnPlay.setOnClickListener(onClick ->
+                openLink(getResources().getString(R.string.market_link))
+        );
     }
 
     private void openLink(String link, String appPackage) {

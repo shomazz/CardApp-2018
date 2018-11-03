@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.shomazzap.cardapp.Data.NewsItem;
 
@@ -20,14 +19,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder> {
 
+    private RequestOptions imageOption = new RequestOptions()
+            .placeholder(R.drawable.news_photo_placeholder)
+            .fallback(R.drawable.news_photo_placeholder)
+            .centerCrop();
     @NonNull
     private List<NewsItem> news;
-    @NonNull
-    private Context context;
     @Nullable
     private OnItemClickListener onClickListener;
-    @NonNull
-    private RequestManager imageLoader;
     @NonNull
     private LayoutInflater inflater;
 
@@ -35,15 +34,8 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
                                @NonNull Context context,
                                @Nullable OnItemClickListener onClickListener) {
         this.news = news;
-        this.context = context;
         this.onClickListener = onClickListener;
         this.inflater = LayoutInflater.from(context);
-
-        RequestOptions imageOption = new RequestOptions()
-                .placeholder(R.drawable.news_photo_placeholder)
-                .fallback(R.drawable.news_photo_placeholder)
-                .centerCrop();
-        this.imageLoader = Glide.with(context).applyDefaultRequestOptions(imageOption);
     }
 
     @NonNull
@@ -88,7 +80,9 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         }
 
         public void bind(NewsItem newsItem) {
-            imageLoader.load(newsItem.getImageUrl()).into(newsPhoto);
+            Glide.with(newsPhoto).applyDefaultRequestOptions(imageOption)
+                    .load(newsItem.getImageUrl())
+                    .into(newsPhoto);
             newsTitle.setText(newsItem.getTitle());
             newsCategory.setText(newsItem.getCategory().getName());
             newsContent.setText(newsItem.getPreviewText());
