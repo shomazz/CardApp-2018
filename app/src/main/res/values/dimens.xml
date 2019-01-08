@@ -18,5 +18,5 @@
 	<dimen name="news_details_padding">10dp</dimen>
 	<dimen name="news_details_title_margin">20dp</dimen>
 
-	<dimen name="recycler_item_margin">4dp</dimen>
+	<dimen name="recycler_item_margin">6dp</dimen>
 </resources>
