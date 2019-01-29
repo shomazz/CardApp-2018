@@ -10,7 +10,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.shomazzap.cardapp.Data.NewsItem;
+import com.shomazzap.cardapp.Util.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -23,17 +25,13 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
             .placeholder(R.drawable.news_photo_placeholder)
             .fallback(R.drawable.news_photo_placeholder)
             .centerCrop();
-    @NonNull
-    private List<NewsItem> news;
-    @Nullable
-    private OnItemClickListener onClickListener;
-    @NonNull
-    private LayoutInflater inflater;
 
-    public NewsRecyclerAdapter(@NonNull List<NewsItem> news,
-                               @NonNull Context context,
+    @NonNull private List<NewsItem> news = new ArrayList<>();
+    @NonNull private LayoutInflater inflater;
+    @Nullable private OnItemClickListener onClickListener;
+
+    public NewsRecyclerAdapter(@NonNull Context context,
                                @Nullable OnItemClickListener onClickListener) {
-        this.news = news;
         this.onClickListener = onClickListener;
         this.inflater = LayoutInflater.from(context);
     }
@@ -56,6 +54,16 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
 
     public interface OnItemClickListener {
         void onItemClick(NewsItem newsItem);
+    }
+
+    public void replaceItems(@NonNull List<NewsItem> news) {
+        Utils.log("Clearing old news...");
+        this.news.clear();
+        Utils.log("Adding new news...");
+        this.news.addAll(news);
+        Utils.log("Update recycler...");
+        notifyDataSetChanged();
+        Utils.log("Updated!");
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

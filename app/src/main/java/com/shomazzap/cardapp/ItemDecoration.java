@@ -26,9 +26,10 @@ public class ItemDecoration extends RecyclerView.ItemDecoration {
                                @NonNull RecyclerView.State state) {
 
         final int position = parent.getChildLayoutPosition(view);
-
+      
         Log.d("ItemDecor", "Item position = " + position);
         Log.d("ItemDecor", "state.getItemCount() = " + state.getItemCount());
+
         switch (position) {
             case RecyclerView.NO_POSITION:
                 outRect.set(0, 0, 0, 0);
