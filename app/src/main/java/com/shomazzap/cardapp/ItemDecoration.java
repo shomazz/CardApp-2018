@@ -2,6 +2,7 @@ package com.shomazzap.cardapp;
 
 import android.content.Context;
 import android.graphics.Rect;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.DimenRes;
@@ -26,9 +27,17 @@ public class ItemDecoration extends RecyclerView.ItemDecoration {
 
         final int position = parent.getChildLayoutPosition(view);
 
-        if (position != RecyclerView.NO_POSITION)
-            outRect.set(itemOffset, itemOffset, itemOffset, itemOffset);
-        else
-            outRect.set(0, 0, 0, 0);
+        //Log.d("ItemDecor", "Item position = " + position);
+        //Log.d("ItemDecor", "state.getItemCount() = " + state.getItemCount());
+        switch (position) {
+            case RecyclerView.NO_POSITION:
+                outRect.set(0, 0, 0, 0);
+                break;
+            case 0:
+                outRect.set(itemOffset, itemOffset, itemOffset, itemOffset);
+                break;
+            default:
+                outRect.set(itemOffset, 0, itemOffset, itemOffset);
+        }
     }
 }
